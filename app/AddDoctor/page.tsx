@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion'; // Import framer motion for animations
 
@@ -57,11 +57,10 @@ export default function Home() {
       {/* Navbar */}
       <nav className="bg-blue-800 p-6 flex justify-between items-center shadow-lg">
         <h1 className="text-white text-3xl font-semibold">MediConnect</h1>
-        <a href="/">
-          <button className="bg-white text-blue-800 font-semibold px-6 py-2 rounded-md hover:bg-blue-200 transition duration-200 ease-in-out">
+       
+        <Link href="/"><button className="bg-white text-blue-800 font-semibold px-6 py-2 rounded-md hover:bg-blue-200 transition duration-200 ease-in-out">
             Home
-          </button>
-        </a>
+          </button></Link>
       </nav>
 
       {/* Hero Section */}
