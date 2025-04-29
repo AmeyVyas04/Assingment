@@ -12,11 +12,11 @@ export async function GET(request) {
     const gender = searchParams.get('gender');
     const specialization = searchParams.get('specialization');
 
-    // Build dynamic filter object
+   
     const filter = {};
-    if (name) filter.name = name;
-    if (gender) filter.gender = gender;
-    if (specialization) filter.specialization = specialization;
+    if (name) filter.name = { $regex: new RegExp(name, 'i') };
+    if (gender) filter.gender = { $regex: new RegExp(gender, 'i') };
+    if (specialization) filter.specialization = { $regex: new RegExp(specialization, 'i') };
 
     const doctors = await Doctor.find(filter);
     return NextResponse.json(doctors);
