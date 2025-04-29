@@ -45,7 +45,8 @@ export default function Home() {
         setErrorMessage(data.message || 'Failed to add doctor.');
       }
     } catch (error) {
-      setErrorMessage('Error connecting to the server.');
+      setErrorMessage('Error connecting to the server.', );
+      console.error('Error:', error);
     } finally {
       setLoading(false);
     }
