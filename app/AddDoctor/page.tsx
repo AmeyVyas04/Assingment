@@ -153,7 +153,7 @@ export default function Home() {
             >
               <label className="flex items-center text-gray-700 font-medium">
                 <FaUserMd className="mr-2 text-blue-600" />
-                Doctor's Full Name
+                Doctors Full Name
               </label>
               <input
                 type="text"
@@ -209,7 +209,7 @@ export default function Home() {
                 value={formData.specialization}
                 onChange={handleChange}
                 required
-                className="w-full text-black p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 bg-gray-50 text-black"
+                className="w-full text-black p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 bg-gray-50"
               />
             </motion.div>
 
