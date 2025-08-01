@@ -4,8 +4,15 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaUserMd, FaVenusMars, FaStethoscope, FaNotesMedical, FaHome, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
+interface FormData {
+  name: string;
+  gender: string;
+  specialization: string;
+  description: string;
+}
+
 export default function Home() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     gender: '',
     specialization: '',
@@ -15,7 +22,7 @@ export default function Home() {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -67,7 +74,7 @@ export default function Home() {
           <h1 className="text-white text-3xl font-bold tracking-tight">MediConnect Pro</h1>
         </div>
        
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -153,7 +160,7 @@ export default function Home() {
             >
               <label className="flex items-center text-gray-700 font-medium">
                 <FaUserMd className="mr-2 text-blue-600" />
-                Doctors Full Name
+                Doctor's Full Name
               </label>
               <input
                 type="text"
@@ -182,12 +189,12 @@ export default function Home() {
                 value={formData.gender}
                 onChange={handleChange}
                 required
-                className="w-full p-4 border text-black border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 bg-gray-200 appearance-none"
+                className="w-full p-4 border text-black border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 bg-gray-50 appearance-none"
               >
                 <option value="">Select Gender</option>
-                <option value="male" className='text-black'>Male</option>
-                <option value="female" className='text-black'>Female</option>
-                <option value="other" className="text-black">Other</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
               </select>
             </motion.div>
 
@@ -228,7 +235,7 @@ export default function Home() {
                 name="description"
                 placeholder="Brief professional background and qualifications..."
                 value={formData.description}
-                onChange={handleChange as any}
+                onChange={handleChange}
                 required
                 rows={4}
                 className="w-full p-4 text-black border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 bg-gray-50"
