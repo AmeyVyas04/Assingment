@@ -160,7 +160,7 @@ export default function Home() {
             >
               <label className="flex items-center text-gray-700 font-medium">
                 <FaUserMd className="mr-2 text-blue-600" />
-                Doctor's Full Name
+                Doctors Full Name
               </label>
               <input
                 type="text"
